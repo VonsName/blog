@@ -5,7 +5,7 @@ module.exports={
     let obj=crypto.createHash('md5');
     obj.update(str);
     let screct=obj.digest('hex');
-    console.log(screct);
+   // console.log(screct);
     return screct;
   }
 };

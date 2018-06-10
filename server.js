@@ -6,6 +6,8 @@ const consolidate=require('consolidate');
 const multer=require('multer');
 const cookiesession=require('cookie-session');
 const cookieParser=require('cookie-parser');
+const common=require('./libs/common');
+const ejs=require('ejs');
 const app=express();
 let keys=[];
 for (let i=0;i<100000;i++){
@@ -30,10 +32,11 @@ app.engine('html',consolidate.ejs);
 app.route('/blog').get((req,res)=> {
     res.send('blog');
 });*/
-const createRouter=require('./route/1.js');
-
-app.use('/article',createRouter());
-app.use('/blog',require('./route/2.js')());
+const createRouter=require('./route/admin/admin.js');
+let str=common.MD5('12345'+common.MD5_SUFFIX);
+console.log(str);
+app.use('/admin',createRouter());
+app.use('/',require('./route/web/web.js')());
 
 app.use(expressStatic('./static'));
 app.listen(8080);
