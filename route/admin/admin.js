@@ -55,16 +55,14 @@ module.exports=function () {
                 });
                 break;
             case 'upd':
-
-                db.query(`select * from banners where id='${req.query.id}'`,(err,data)=>{
+                db.query(`select * from banners where id='${req.query.id}'`,(err,mod_data)=>{
                     if (err){
                         console.error(err);
                         res.status(500).send('database error').end();
                     } else {
-
+                        res.render('../template/banners.ejs',{mod_data});
                     }
                 });
-
                 break;
             default:
                 db.query(`select * from banners`,(err,banners)=>{
