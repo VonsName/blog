@@ -18,10 +18,11 @@ app.use(cookiesession({
     keys:keys,
     maxAge:20*60*1000
 }));
+app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(multer().any());
 //创建mysql连接池
-mysql.createPool({host:'localhost',username:'root',password:'root',database:'node'});
+let db=mysql.createPool({host:'localhost',username:'root',password:'root',database:'node'});
 //模板
 app.set('views','./template');
 app.set('view engine','html');
