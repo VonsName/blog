@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        //generator 生成器函数--中间能暂停
+        function *show() {
+            alert('a');
+            let a=yield ;//函数执行到这里暂停
+            alert('b');
+            alert(a);
+        }
+        let gs=show();
+        let res1=gs.next(12);
+        console.log(res1);
+        let res2=gs.next(5);
+        console.log(res2);
+    </script>
+</body>
+</html>

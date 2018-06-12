@@ -7,7 +7,7 @@
 <body>
     <script src="jquery-3.3.1.js"></script>
     <script>
-        //promise:使用同步的方法，实现异步的效果
+        //promise:使用同步的写法，实现异步的效果
         let p=new Promise(function (resolve,reject) {
             $.ajax({
                url:'a.txt',
@@ -52,6 +52,15 @@
         });
 
         //第二种写法
+        Promise.race([$.ajax({}),$.ajax({})]).then( (data)=> {
+            let[r1,r2]=data;//解构赋值
+            alert(r2);
+            alert(r1);
+            //有一个成功即可
+        }, (err)=> {
+
+        });
+        //第三种
         Promise.all([$.ajax({
             url:'a.txt',
             dataType:'json',
