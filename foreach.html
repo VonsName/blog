@@ -6,10 +6,31 @@
 </head>
 <body>
     <script>
+        /**
+         * for in 可以遍历数组，json  每次遍历得到是下标
+         * for of 不能迭代json  每次迭代得到是value
+         */
         let arr=[1,2,3,4,5];
-        arr.forEach((item,index)=>{
-            alert(index+'='+item);
-        })
+       // arr.forEach((item,index)=>{
+         //   alert(index+'='+item);
+        //});
+        //alert(arr.includes(88));
+        /*for (let key of arr.keys()){
+            alert(key);
+        }*/
+        /*for (let value of arr.values()){
+            alert(value);
+        }*/
+        /*for (let entry of arr.entries()){
+            alert(entry);
+        }*/
+        /*for (let i in arr){
+            alert(i);
+        }*/
+        /*for (let [key,value] of arr.entries()){
+            alert(`${key}=${value}`);
+        }*/
+        let json={a:12,b:23};
     </script>
 </body>
 </html>

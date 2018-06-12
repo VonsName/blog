@@ -55,22 +55,22 @@ module.exports=function () {
                 });
                 break;
             case 'upd':
-                db.query(`select * from banners where id='${req.query.id}'`,(err,mod_data)=>{
+                db.query(`select * from banner where id='${req.query.id}'`,(err,mod_data)=>{
                     if (err){
                         console.error(err);
                         res.status(500).send('database error').end();
                     } else {
-                        res.render('../template/banners.ejs',{mod_data});
+                        res.render('../template/banner.ejs',{mod_data});
                     }
                 });
                 break;
             default:
-                db.query(`select * from banners`,(err,banners)=>{
+                db.query(`select * from banner`,(err,banners)=>{
                     if (err){
                         console.error(err);
                         res.status(500).send('database error').end();
                     } else {
-                        res.render('../template/banners.ejs',{banners});
+                        res.render('../template/banner.ejs',{banners});
                     }
                 });
                 break;
@@ -78,7 +78,7 @@ module.exports=function () {
     });
     router.post('/banners',(req,res)=>{
         if (req.body.id){
-            db.query(`update banners set title='${req.body.title}' where id='${req.body.id}'`,(err,data)=>{
+            db.query(`update banner set title='${req.body.title}' where id='${req.body.id}'`,(err)=>{
                 if (err){
                     console.error(err);
                     res.status(500).send('database error').end();

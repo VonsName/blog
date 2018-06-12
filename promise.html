@@ -16,7 +16,7 @@
                success(data){
                    resolve(data);
                },
-               err(err){
+               error(err){
                    reject(err);
                }
             });
@@ -29,7 +29,7 @@
                 success(data){
                     resolve(data);
                 },
-                err(err){
+                error(err){
                     reject(err);
                 }
             });
@@ -67,7 +67,7 @@
             success(data){
                 resolve(data);
             },
-            err(err){
+            error(err){
                 reject(err);
             }
         }),$.ajax({
@@ -76,7 +76,7 @@
             success(data){
                 resolve(data);
             },
-            err(err){
+            error(err){
                 reject(err);
             }
         })]).then((data) =>{
