@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //let json={a:12,b:23};
+        //alert(JSON.stringify(json));
+        //alert(encodeURIComponent(JSON.stringify(json)));
+        let str='{"a":12,"b":23}';
+        let json=JSON.parse(str);
+        alert(json);
+        let j={
+            a:2,
+            show:function () {
+                alert(this.a);
+            }
+        };
+        j.show();
+    </script>
+</body>
+</html>

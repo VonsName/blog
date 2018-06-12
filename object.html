@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*function User(name,pass) {
+            this.name=name;
+            this.pass=pass;
+        }
+
+        User.prototype.showName=function(){
+            alert(this.name);
+        };
+        User.prototype.showPass=function(){
+            alert(this.pass);
+        };
+        let u1=new User('blue','123');*/
+       // u1.showName();
+        //u1.showPass();
+
+        // function VIP(name,pass,level) {
+        //     User.call(this,name,pass);
+        //     this.level=level;
+        // }
+        // //es6之前的继承
+        // VIP.prototype=new User();
+        // VIP.prototype.constructor=VIP;
+        // VIP.prototype.showLevel=function () {
+        //     alert(this.level);
+        // };
+        //
+        // let v1=new VIP('red','12345','2');
+        // v1.showLevel();
+        // v1.showPass();
+        // v1.showName();
+
+        //es6
+        class User{
+            constructor(name,pass){
+                this.name=name;
+                this.pass=pass;
+            }
+            showName(){
+                alert(this.name);
+            }
+            showPass(){
+                alert(this.pass);
+            }
+        }
+        let u1=new User('aaa','12345');
+        //u1.showPass();
+        //u1.showName();
+
+        //es6继承
+        class Person extends User{
+            constructor(name,pass,level){
+                super(name,pass);
+                this.level=level;
+            }
+            showLevel(){
+                alert(this.level);
+            }
+        }
+        let p1=new Person('aaaaa','11111','1');
+        p1.showLevel();
+        p1.showName();
+    </script>
+</body>
+</html>

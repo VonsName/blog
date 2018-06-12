@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        //promise:使用同步的方法，实现异步的效果
+        let p=new Promise(function (resolve,reject) {
+            $.ajax({
+               url:'a.txt',
+               dataType:'json',
+               //type:'get',
+               success(data){
+                   resolve(data);
+               },
+               err(err){
+                   reject(err);
+               }
+            });
+        });
+        let p1=new Promise(function (resolve,reject) {
+            $.ajax({
+                url:'a.txt',
+                dataType:'json',
+                //type:'get',
+                success(data){
+                    resolve(data);
+                },
+                err(err){
+                    reject(err);
+                }
+            });
+        });
+        p.then(function (data) {
+            alert('成功'+data);
+        },function (err) {
+            console.log(err);
+            alert('失败'+err);
+        });
+
+        //一下执行全部请求
+        Promise.all([p,p1]).then(function (data) {
+            let[res1,res2]=data;
+            alert('全部成功'+data);
+            alert(res1);
+            alert(res2);
+        },function (err) {
+            alert('全部失败'+err);
+        });
+
+        //第二种写法
+        Promise.all([$.ajax({
+            url:'a.txt',
+            dataType:'json',
+            success(data){
+                resolve(data);
+            },
+            err(err){
+                reject(err);
+            }
+        }),$.ajax({
+            url:'a.txt',
+            dataType:'json',
+            success(data){
+                resolve(data);
+            },
+            err(err){
+                reject(err);
+            }
+        })]).then((data) =>{
+            alert('成功'+data);
+        },(err) =>{
+            alert('失败'+err);
+        });
+    </script>
+</body>
+</html>
